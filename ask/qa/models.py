@@ -14,6 +14,12 @@ class Question(models.Model):
 	rating = models.IntegerField(default = 0)
 	author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	likes = models.ManyToManyField(User, related_name='question_like_user')
+	
+	def __unicode__(self):
+        	return self.title
+
+        def get_url(self):
+        	return reverse('question', args=[self.pk, ])
 	objects = QuestionManager()
 
 
