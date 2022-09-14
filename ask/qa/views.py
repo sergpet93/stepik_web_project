@@ -27,6 +27,6 @@ def question(request, pk):
 	qst = get_object_or_404(Question, ip = pk)
 	return render (request, 'question.html', 
 		{
-			'question': qst
-			'answers': qst.answer_set.all()
+			'question': qst,
+			'answers': qst.answer_set.all(),
 		})
