@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage
-from django http import Http404
+from django.http import Http404
 
 
 def paginate(request, qs):
