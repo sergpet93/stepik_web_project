@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} Question {% endblock %}
+{% block content %}
+	<h1> {{question.title}} </h1>
+	<p> {{question.text}} </p>
+	{% for obj in answers%}
+		<p> {{obj.text}} </p>
+	{%endfor}
+{% endblock%}
