@@ -22,10 +22,10 @@ class Question(models.Model):
     objects = QuestionManager()
 
     def __unicode__(self):
-	return self.title
+        return self.title
 
     def get_url(self):
-	return reverse('question',args=[self.pk])
+        return reverse('question',args=[self.pk])
 
 class Answer(models.Model):
     text = models.TextField()
