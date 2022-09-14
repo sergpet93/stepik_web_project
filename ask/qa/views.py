@@ -22,7 +22,7 @@ def popular(request):
     })
 
 def question(request, pk):
-    qst = get_object_or_404(Question, ip = pk)
+    qst = get_object_or_404(Question, id = pk)
     return render (request, 'question.html', {
         'question': qst,
         'answers': qst.answer_set.all(),
