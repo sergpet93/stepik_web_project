@@ -6,8 +6,8 @@ from qa.models import Question, Answer
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
-def main(request):
-	question = Question.objects.new()
+def main(request, *args, **kwargs):
+	question = Question.objects.order_by('-added_at')
 	page = paginate(request, question )
 	return render (request, 'main.html',
                    {
