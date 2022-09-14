@@ -3,7 +3,7 @@
 {% block content %}
 	<h1> {{question.title}} </h1>
 	<p> {{question.text}} </p>
-	{% for obj in answers%}
+	{% for obj in answers %}
 		<p> {{obj.text}} </p>
-	{%endfor}
-{% endblock%}
+	{% endfor %}
+{% endblock %}
