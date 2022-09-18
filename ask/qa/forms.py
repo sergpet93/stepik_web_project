@@ -11,13 +11,13 @@ class AskForm(forms.Form):
   def clean_title(self):
     title = self.cleaned_data['title']
     if title.strip() == '':
-      raise forms.ValidationError('Не корректный ввод данных', code='validation_error')
+      raise forms.ValidationError('Title is empty', code='validation_error')
     return title
   
   def clean_text(self):
     text = self.cleaned_data['text']
     if text.strip() == '':
-      raise forms.ValidationError('Не корректный ввод данных', code='validation_error')
+      raise forms.ValidationError('Title is empty', code='validation_error')
     return text
   
   def save(self):
@@ -36,7 +36,7 @@ class AnswerForm(forms.Form):
   def clean_text(self):
     text = self.cleaned_data['text']
     if text.strip() == '':
-      raise forms.ValidationError('Не корректный ввод данных', code='validation_error')
+      raise forms.ValidationError('Title is empty', code='validation_error')
     return text
   
   def clean_question(self):
