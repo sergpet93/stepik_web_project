@@ -21,11 +21,12 @@ class AskForm(forms.Form):
     return text
   
   def save(self):
-    if self._user.is_anonymous():
-      self.cleaned_data['author_id'] = 1
-    else:
-      self.cleaned_data['author'] = self._user
+    #if self._user.is_anonymous():
+     # self.cleaned_data['author_id'] = 1
+    #else:
+     # self.cleaned_data['author'] = self._user
     question = Question(**self.cleaned_data)
+    question.author_id = 1
     question.save()
     return question
   
@@ -48,11 +49,12 @@ class AnswerForm(forms.Form):
   
   def save(self):
     self.cleaned_data['question'] = get_object_or_404(Question, pk=self.cleaned_data['question'])
-    if self._user.is_anonymous():
-      self.cleaned_data['author_id'] = 1
-    else:
-      self.cleaned_data['author'] = self._user
+    #if self._user.is_anonymous():
+     # self.cleaned_data['author_id'] = 1
+    #else:
+     # self.cleaned_data['author'] = self._user
     answer = Answer(**self.cleaned_data)
+    answer.author_id = 1
     answer.save()
     return answer
   
