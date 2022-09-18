@@ -26,7 +26,7 @@ def popular(request):
 def question(request, id):
     qst = get_object_or_404(Question, id = id)
     form = AnswerForm(initial = {'question': question_id})
-    return render (request, 'question.html', {
+    return render (request, 'questions.html', {
         'question': qst,
         'answers': qst.answer_set.all(),
         'form': form,
