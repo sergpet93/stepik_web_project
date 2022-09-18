@@ -22,7 +22,7 @@ class AskForm(forms.Form):
   
   def save(self):
     if self._user.is_anonymous():
-      self.cleaned_data['author'] = 1
+      self.cleaned_data['author_id'] = 1
     else:
       self.cleaned_data['author'] = self._user
     question = Question(**self.cleaned_data)
@@ -49,7 +49,7 @@ class AnswerForm(forms.Form):
   def save(self):
     self.cleaned_data['question'] = get_object_or_404(Question, pk=self.cleaned_data['question'])
     if self._user.is_anonymous():
-      self.cleaned_data['author'] = 1
+      self.cleaned_data['author_id'] = 1
     else:
       self.cleaned_data['author'] = self._user
     answer = Answer(**self.cleaned_data)
