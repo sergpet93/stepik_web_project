@@ -6,7 +6,7 @@ from .models import Question, Answer
 
 class AskForm(forms.Form):
   title = forms.CharField(max_length=256)
-  text = forms.CharField(widget=Forms.Textarea)
+  text = forms.CharField(widget=forms.Textarea)
   
   def clean_title(self):
     title = self.cleaned_data['title']
@@ -30,7 +30,7 @@ class AskForm(forms.Form):
     return question
   
 class AnswerForm(forms.Form):
-  text = forms.CharField(widget=Forms.Textarea)
+  text = forms.CharField(widget=forms.Textarea)
   question = forms.IntegerField(widget=forms.HiddenInput)
   
   def clean_text(self):
