@@ -1,7 +1,7 @@
 sudo /etc/init.d/mysql start
 mysql -uroot -e "create database web;"
+mysql -uroot -e "CREATE USER 'box'@'localhost' IDENTIFIED BY 'box';"
 mysql -uroot -e "grant all privileges on web.*to'box'@'localhost' with grant option;"
-mysql -uroot -e "CREATE USER 'trasea'@'localhost' IDENTIFIED BY 'trasea';"
 ~/web/ask/manage.py makemigrations qa
 ~/web/ask/manage.py migrate qa
 sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/default
